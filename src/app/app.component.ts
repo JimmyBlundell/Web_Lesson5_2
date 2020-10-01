@@ -26,20 +26,12 @@ export class AppComponent {
     }
   }
 
-  // Write code to complete item
-  completeItem(item) {
-    for (let i = 0; i < this.items.length; i++) {
-      if (this.items[i].details === item.details) {
-        this.items[i].isComplete = true;
-      }
-    }
-  }
-
   // Write code to delete item
   deleteItem(index) {
     this.items.splice(index, 1);
   }
 
+  // Code to "complete" the item"
   toggleItem(index) {
     const item = this.items[index];
     if (item) {
