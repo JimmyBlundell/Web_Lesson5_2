@@ -2,11 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Calculator</title>
-  // 1. write Typescript code in "app.component.ts" to work with ToDo list
+  <div id ="my-div">
+    <title>To Do List</title>
+  </div>
 </head>
 <body>
-// 2. write html(view) code to display the ToDos
+  <div class="todo-list">
+    <div class="todo-list__head">
+      <div class="todo-list-head__text-input">
+        {{ header }}
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="row mt-1" style="height:80px;">
+      <div class="col-3 d-none col-md-3 d-md-block"></div>
+      <div class="col-12 col-md-6 bg-success d-flex
+                        justify-conten
+                        t-center align-items-center
+                        text-light h3">
+          <span>
+            <input [(ngModel)]="newItem" type="text"
+                   value="" class="col-7 form-control"
+                   style="width:300px; height:48px; font-size: 25px">
+            <button id="add-btn" (click)="submitNewItem()"
+                    class="btn btn-light text-success">
+            </button>
+          </span>
 
+        <div class="col-1"></div>
+      </div>
+
+      <div class="col-3 d-none col-md-3 d-md-block"></div>
+    </div>
+
+    <div class="todo-list">
+      <table class="todo-table" width="50%" cellpadding="10" cellspacing="5">
+        <tr *ngFor="let item of items; let index = index;"
+            class="todo-list-item">
+          <td align="left" width="50px" style="padding: 0">
+            <button class="check-btn" [class.is-completed]="item.isComplete" (click)="toggleItem(index)"></button>
+          </td>
+          <td align="left">
+            <span class="todo-text" [class.todo-completed]="item.isComplete">{{item.details}}</span>
+          </td>
+          <td align="right">
+            <button class="delete-btn" (click)="deleteItem(index)"></button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </body>
 </html>
